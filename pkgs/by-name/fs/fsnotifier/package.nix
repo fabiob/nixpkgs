@@ -5,14 +5,14 @@
 }:
 
 stdenv.mkDerivation (finalAttrs: {
-  version = "2024.2.0";
+  version = "2025.4.0";
   pname = "fsnotifier";
 
   src = fetchFromGitHub {
     owner = "JetBrains";
     repo = "intellij-community";
-    rev = "0f6d9ccb67b8fcad0d802cd76209d503c4ed66a6";
-    hash = "sha256-3TAiVvKi50JQRrVG6J7LUJKTiuOTDyKt4DhoA1QmbrM=";
+    rev = "1725b9d80229df4741d8089ba0011a8911e472d2";
+    hash = "sha256-tui6ZVowb0mVZNP9usorWEmZb5gEDqKskAiaFXD/HDo=";
     sparseCheckout = [ "native/fsNotifier/linux" ];
   };
 
@@ -29,12 +29,12 @@ stdenv.mkDerivation (finalAttrs: {
     cp fsnotifier $out/bin/fsnotifier
   '';
 
-  meta = {
+  meta = with lib; {
     homepage = "https://github.com/JetBrains/intellij-community/tree/master/native/fsNotifier/linux";
     description = "IntelliJ Platform companion program for watching and reporting file and directory structure modification";
-    license = lib.licenses.asl20;
+    license = licenses.asl20;
     mainProgram = "fsnotifier";
-    maintainers = [ ];
-    platforms = lib.platforms.linux;
+    maintainers = with maintainers; [ fabiob ];
+    platforms = platforms.linux;
   };
 })
